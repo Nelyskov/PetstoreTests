@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="e4fb735d-dce9-4b78-beee-9361c202a4f7" name="nlysk@MYPC 2025-10-07 17:01:18" runUser="MYPC\nlysk" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2025-10-07T17:01:18.4684892+03:00" queuing="2025-10-07T17:01:18.4684895+03:00" start="2025-10-07T17:01:13.4882495+03:00" finish="2025-10-07T17:01:19.1032066+03:00" />
+  <TestSettings name="default" id="4b38f374-de2e-452f-aabf-8d8fa401a9d5">
+    <Deployment runDeploymentRoot="nlysk_MYPC_2025-10-07_17_01_18" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="cfea75d0-0c7d-4f94-bc68-e8646f11d41e" testId="671c0751-aa23-60ca-3d2a-cd552678fcad" testName="DeletePetByID_ShouldReturnSuccess" computerName="MYPC" duration="00:00:04.5406310" startTime="2025-10-07T17:01:13.8982959+03:00" endTime="2025-10-07T17:01:18.4388892+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cfea75d0-0c7d-4f94-bc68-e8646f11d41e">
+      <Output>
+        <ErrorInfo>
+          <Message>Multiple failures or warnings in test:&#xD;
+  1)   Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK))&#xD;
+  Expected: OK&#xD;
+  But was:  NotFound&#xD;
+&#xD;
+     at PetstoreTests.Tests.PetTests.DeletePetByID_ShouldReturnSuccess() in D:\Git\PetstoreTests\Tests\PetTests.cs:line 40&#xD;
+&#xD;
+  2) TearDown : System.IO.DirectoryNotFoundException : Could not find a part of the path 'D:\Git\PetstoreTests\bin\Debug\net9.0\Reports\Reports\ExtentReport.html'.&#xD;
+  --TearDown&#xD;
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)&#xD;
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)&#xD;
+   at System.IO.File.OpenHandle(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)&#xD;
+   at System.IO.File.WriteToFile(String path, FileMode mode, ReadOnlySpan`1 contents, Encoding encoding)&#xD;
+   at System.IO.File.WriteAllText(String path, String contents, Encoding encoding)&#xD;
+   at AventStack.ExtentReports.Reporter.ExtentSparkReporter.OnNext(ReportEntity value)&#xD;
+   at System.Reactive.Subjects.Subject`1.OnNext(T value)&#xD;
+   at AventStack.ExtentReports.Core.ReactiveSubject.Flush()&#xD;
+   at AventStack.ExtentReports.Core.AbstractProcessor.OnFlush()&#xD;
+   at AventStack.ExtentReports.ExtentReports.Flush()&#xD;
+   at PetstoreTests.Tests.BaseTest.TearDown() in D:\Git\PetstoreTests\Tests\BaseTest.cs:line 39&#xD;
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</Message>
+          <StackTrace>
+1)    at PetstoreTests.Tests.PetTests.DeletePetByID_ShouldReturnSuccess() in D:\Git\PetstoreTests\Tests\PetTests.cs:line 40&#xD;
+
+2) --TearDown&#xD;
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)&#xD;
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)&#xD;
+   at System.IO.File.OpenHandle(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)&#xD;
+   at System.IO.File.WriteToFile(String path, FileMode mode, ReadOnlySpan`1 contents, Encoding encoding)&#xD;
+   at System.IO.File.WriteAllText(String path, String contents, Encoding encoding)&#xD;
+   at AventStack.ExtentReports.Reporter.ExtentSparkReporter.OnNext(ReportEntity value)&#xD;
+   at System.Reactive.Subjects.Subject`1.OnNext(T value)&#xD;
+   at AventStack.ExtentReports.Core.ReactiveSubject.Flush()&#xD;
+   at AventStack.ExtentReports.Core.AbstractProcessor.OnFlush()&#xD;
+   at AventStack.ExtentReports.ExtentReports.Flush()&#xD;
+   at PetstoreTests.Tests.BaseTest.TearDown() in D:\Git\PetstoreTests\Tests\BaseTest.cs:line 39&#xD;
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1cc116ce-055b-4eb5-9c70-36963c93022b" testId="cf3bf962-9d6f-c2e7-f82a-b7edc94eb6fc" testName="GetPetById_ShouldReturnPet" computerName="MYPC" duration="00:00:00.5896840" startTime="2025-10-07T17:01:18.4408642+03:00" endTime="2025-10-07T17:01:19.0305475+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1cc116ce-055b-4eb5-9c70-36963c93022b">
+      <Output>
+        <ErrorInfo>
+          <Message>Multiple failures or warnings in test:&#xD;
+  1)   Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK))&#xD;
+  Expected: OK&#xD;
+  But was:  NotFound&#xD;
+&#xD;
+     at PetstoreTests.Tests.PetTests.GetPetById_ShouldReturnPet() in D:\Git\PetstoreTests\Tests\PetTests.cs:line 27&#xD;
+&#xD;
+  2) TearDown : System.IO.DirectoryNotFoundException : Could not find a part of the path 'D:\Git\PetstoreTests\bin\Debug\net9.0\Reports\Reports\ExtentReport.html'.&#xD;
+  --TearDown&#xD;
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)&#xD;
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)&#xD;
+   at System.IO.File.OpenHandle(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)&#xD;
+   at System.IO.File.WriteToFile(String path, FileMode mode, ReadOnlySpan`1 contents, Encoding encoding)&#xD;
+   at System.IO.File.WriteAllText(String path, String contents, Encoding encoding)&#xD;
+   at AventStack.ExtentReports.Reporter.ExtentSparkReporter.OnNext(ReportEntity value)&#xD;
+   at System.Reactive.Subjects.Subject`1.OnNext(T value)&#xD;
+   at AventStack.ExtentReports.Core.ReactiveSubject.Flush()&#xD;
+   at AventStack.ExtentReports.Core.AbstractProcessor.OnFlush()&#xD;
+   at AventStack.ExtentReports.ExtentReports.Flush()&#xD;
+   at PetstoreTests.Tests.BaseTest.TearDown() in D:\Git\PetstoreTests\Tests\BaseTest.cs:line 39&#xD;
+   at InvokeStub_BaseTest.TearDown(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)&#xD;
+</Message>
+          <StackTrace>
+1)    at PetstoreTests.Tests.PetTests.GetPetById_ShouldReturnPet() in D:\Git\PetstoreTests\Tests\PetTests.cs:line 27&#xD;
+
+2) --TearDown&#xD;
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)&#xD;
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)&#xD;
+   at System.IO.File.OpenHandle(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)&#xD;
+   at System.IO.File.WriteToFile(String path, FileMode mode, ReadOnlySpan`1 contents, Encoding encoding)&#xD;
+   at System.IO.File.WriteAllText(String path, String contents, Encoding encoding)&#xD;
+   at AventStack.ExtentReports.Reporter.ExtentSparkReporter.OnNext(ReportEntity value)&#xD;
+   at System.Reactive.Subjects.Subject`1.OnNext(T value)&#xD;
+   at AventStack.ExtentReports.Core.ReactiveSubject.Flush()&#xD;
+   at AventStack.ExtentReports.Core.AbstractProcessor.OnFlush()&#xD;
+   at AventStack.ExtentReports.ExtentReports.Flush()&#xD;
+   at PetstoreTests.Tests.BaseTest.TearDown() in D:\Git\PetstoreTests\Tests\BaseTest.cs:line 39&#xD;
+   at InvokeStub_BaseTest.TearDown(Object, Object, IntPtr*)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="DeletePetByID_ShouldReturnSuccess" storage="d:\git\petstoretests\bin\debug\net9.0\petstoretests.dll" id="671c0751-aa23-60ca-3d2a-cd552678fcad">
+      <Execution id="cfea75d0-0c7d-4f94-bc68-e8646f11d41e" />
+      <TestMethod codeBase="D:\Git\PetstoreTests\bin\Debug\net9.0\PetstoreTests.dll" adapterTypeName="executor://nunit3testexecutor/" className="PetstoreTests.Tests.PetTests" name="DeletePetByID_ShouldReturnSuccess" />
+    </UnitTest>
+    <UnitTest name="GetPetById_ShouldReturnPet" storage="d:\git\petstoretests\bin\debug\net9.0\petstoretests.dll" id="cf3bf962-9d6f-c2e7-f82a-b7edc94eb6fc">
+      <Execution id="1cc116ce-055b-4eb5-9c70-36963c93022b" />
+      <TestMethod codeBase="D:\Git\PetstoreTests\bin\Debug\net9.0\PetstoreTests.dll" adapterTypeName="executor://nunit3testexecutor/" className="PetstoreTests.Tests.PetTests" name="GetPetById_ShouldReturnPet" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="671c0751-aa23-60ca-3d2a-cd552678fcad" executionId="cfea75d0-0c7d-4f94-bc68-e8646f11d41e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cf3bf962-9d6f-c2e7-f82a-b7edc94eb6fc" executionId="1cc116ce-055b-4eb5-9c70-36963c93022b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Список результатов" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Все загруженные результаты" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="2" executed="2" passed="0" failed="2" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>NUnit Adapter 4.6.0.0: Test execution started&#xD;
+Running all tests in D:\Git\PetstoreTests\bin\Debug\net9.0\PetstoreTests.dll&#xD;
+   NUnit3TestExecutor discovered 2 of 2 NUnit test cases using Current Discovery mode, Non-Explicit run&#xD;
+NUnit Adapter 4.6.0.0: Test execution complete&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

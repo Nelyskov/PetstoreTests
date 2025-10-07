@@ -14,6 +14,10 @@ namespace PetstoreTests.Tests
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
+            var projectDir = TestContext.CurrentContext.WorkDirectory;
+            var reportPath = Path.Combine(projectDir, "Reports");
+            Directory.CreateDirectory(reportPath);
+
             var htmlReporter = new ExtentSparkReporter("Reports/ExtentReport.html");
             _extent = new ExtentReports();
             _extent.AttachReporter(htmlReporter);
