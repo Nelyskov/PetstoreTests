@@ -9,30 +9,46 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
-      - run: dotnet restore
-      - run: dotnet test ApiTests.csproj --configuration Release --logger "trx;LogFileName=test_results.trx"
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Run tests
+        run: dotnet test --configuration Release --logger "trx;LogFileName=test_results.trx"
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: **/*.trx
+          retention-days: 30
   allure-report:
     needs: test
     runs-on: ubuntu-latest
+    if: always()
 
     steps:
-      - name: Download allure-results artifact
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download test results
         uses: actions/download-artifact@v4
         with:
-          name: allure-results
-          path: allure-results
+          name: test-results
+          path: TestResults/
 
-      - name: Setup Allure CLI
+      - name: Generate Allure report
         uses: simple-elf/allure-report-action@v1.8
         with:
-          allure_results: allure-results
+          allure_results: TestResults/
           allure_report: allure-report
           allure_history: allure-history
-
+          
       - name: Deploy Allure report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
