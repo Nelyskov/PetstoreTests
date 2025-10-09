@@ -7,7 +7,7 @@ using Allure.NUnit.Attributes;
 
 namespace PetstoreTests.Tests
 {
-    [AllureSuite("Pet Testt")]
+    [AllureSuite("Pet Test")]
     public class PetTests : BaseTest
     {
         private ApiClient _apiClient;
