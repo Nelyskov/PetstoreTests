@@ -1,9 +1,9 @@
-name: API Tests
+name: API Tests Debug
 
 on: [push, pull_request]
 
 jobs:
-  test:
+  test-debug:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,60 +18,22 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
         
-      - name: Create TestResults directory
-        run: mkdir -p TestResults
-        
-      - name: Run tests
-        run: dotnet test --configuration Release --logger "trx;LogFileName=test_results.trx" --results-directory TestResults
-      
-      - name: Debug - Check what files were created
+      - name: Run tests with debug info
         run: |
-          echo "=== Current directory structure ==="
-          find . -name "*.trx" -type f | head -10
-          echo "=== TestResults directory contents ==="
-          ls -la TestResults/ || echo "TestResults directory not found"
-          echo "=== Checking for trx files ==="
-          find . -name "*.trx" 2>/dev/null || echo "No .trx files found"
-      
-      - name: Upload test results
+          echo "=== Running tests ==="
+          dotnet test --configuration Release --logger "trx;LogFileName=test_results.trx" -v detailed
+          
+          echo "=== Searching for result files ==="
+          find . -type f -name "*.trx" 2>/dev/null
+          
+          echo "=== Current directory ==="
+          pwd
+          ls -la
+          
+      - name: Try to upload any trx files
         uses: actions/upload-artifact@v4
         with:
-          name: test-results
-          path: TestResults/**/*.trx
-          if-no-files-found: error
-          retention-days: 30
-
-  allure-report:
-    needs: test
-    runs-on: ubuntu-latest
-    if: always()
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        
-      - name: Download test results
-        uses: actions/download-artifact@v4
-        with:
-          name: test-results
-          path: allure-results
-          
-      - name: Debug downloaded files
-        run: |
-          echo "=== Downloaded files structure ==="
-          find . -name "*.trx" -type f
-          echo "=== allure-results directory ==="
-          ls -la allure-results/ || echo "allure-results directory not found"
-          
-      - name: Generate Allure report
-        uses: simple-elf/allure-report-action@v1.8
-        with:
-          allure_results: allure-results
-          allure_report: allure-report
-          allure_history: allure-history
-          
-      - name: Deploy Allure report to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: allure-report
+          name: debug-results
+          path: "**/*.trx"
+          if-no-files-found: warn
+          retention-days: 1
