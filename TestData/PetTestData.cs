@@ -48,12 +48,26 @@ namespace PetstoreTests.TestData
                 return JsonHelper.Deserialize<List<JsonBodyToUpdatePet>>(json);
             }
         }
+        public static IEnumerable<UploadFileObjectToPet> PostUploadImageToPet
+        {
+            get
+            {
+                var json = File.ReadAllText(GetJsonFilePath("PostUploadImageToPet.json"));
+                return JsonHelper.Deserialize<List<UploadFileObjectToPet>>(json);
+            }
+        }
 
+    }
+    public class UploadFileObjectToPet
+    {
+        public long Id { get; set; }
+        public string FilePath { get; set; }
+        public (string, string) ResponsedParametrs { get; set; }
     }
 
     public class JsonBodyToUpdatePet
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string Name { get; set; }
         public PetStatus Status { get; set; }
     }

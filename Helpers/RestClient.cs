@@ -86,7 +86,6 @@ namespace PetstoreTests.Helpers
 
             request.AddFile(Path.GetFileName(filePath), filePath, Path.GetExtension(filePath));
             return await client.ExecuteAsync(request);
-
         }
 
     }
