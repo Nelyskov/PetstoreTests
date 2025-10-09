@@ -2,8 +2,6 @@ using PetstoreTests.Helpers;
 using System.Net;
 using Allure.Net.Commons;
 using Allure.NUnit.Attributes;
-using RestSharp;
-using System.Text.Json;
 using PetstoreTests.TestData;
 using PetstoreTests.Models;
 
