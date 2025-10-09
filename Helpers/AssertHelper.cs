@@ -1,9 +1,9 @@
 
 namespace PetstoreTests.Helpers
 {
-    public class Assert()
+    public class AssertHelper()
     {
-        
+
     }
 }
 
