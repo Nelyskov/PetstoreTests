@@ -3,12 +3,14 @@ using AventStack.ExtentReports.Reporter;
 using NUnit.Framework;
 using Allure.Commons;
 using Allure.NUnit;
+using RestSharp;
 
 namespace PetstoreTests.Tests
 {
     [AllureNUnit]
     public class BaseTest
     {
+        RestClient _restClient;
         protected static ExtentReports _extent;
         protected ExtentTest _test;
         [OneTimeSetUp]
