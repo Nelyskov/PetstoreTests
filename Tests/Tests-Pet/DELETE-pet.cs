@@ -1,7 +1,5 @@
-using NUnit.Framework;
 using PetstoreTests.Helpers;
 using System.Net;
-using System.Threading.Tasks;
 using Allure.Net.Commons;
 using Allure.NUnit.Attributes;
 using PetstoreTests.TestData;
@@ -17,7 +15,7 @@ namespace PetstoreTests.Tests
         [AllureTag("API", "pet", "DELETE")]
         [AllureSeverity(SeverityLevel.normal)]
         [AllureOwner("Nikita")]
-        [TestCaseSource(typeof(PetTestData), nameof(PetTestData.PetIdsForDelete))]
+        [TestCaseSource(typeof(PetTestData), nameof(PetTestData.GetPetsId))]
         public async Task DeletePetByID_ShouldReturnExpectedStatus(long id)
         {
             var response = await RestClientHelper.DeleteAsync($"/pet/{id}");

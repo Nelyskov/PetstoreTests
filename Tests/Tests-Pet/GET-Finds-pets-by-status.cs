@@ -19,7 +19,7 @@ namespace PetstoreTests.Tests
         [TestCaseSource(typeof(PetTestData), nameof(PetTestData.GetPetsStatus))]
         public async Task FindPetByStatus_ShouldReturnExpectedStatus(string petStatus)
         {
-            var response = await RestClientHelper.GetAsync($"/pet/findByStatus", "status", petStatus);
+            var response = await RestClientHelper.GetAsync("/pet/findByStatus", ("status", petStatus));
             Assert.That(
                 response.StatusCode == HttpStatusCode.OK
                 || response.StatusCode == HttpStatusCode.BadRequest,

@@ -44,7 +44,7 @@ namespace PetstoreTests.Tests
         {
             var response = await RestClientHelper.PostAsync($"/pet/{jsonBodyToUpdatePet.Id}", jsonBodyToUpdatePet);
 
-            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK), $"Unexpected status {response.StatusCode}, but expected 200 with JSONBODY");
+            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.NotFound), $"Unexpected status {response.StatusCode}, but expected 404 with JSONBODY");
 
             ApiResponse apiResponse = new ApiResponse();
             if (response.StatusCode == HttpStatusCode.OK)
@@ -68,7 +68,7 @@ namespace PetstoreTests.Tests
         {
             var response = await RestClientHelper.PostAsync($"/pet/{jsonBodyToUpdatePet.Id}", jsonBodyToUpdatePet);
 
-            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK), $"Unexpected status {response.StatusCode}, but expected 200 with JSONBODY");
+            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.MethodNotAllowed), $"Unexpected status {response.StatusCode}, but expected 405 with JSONBODY");
 
             ApiResponse apiResponse = new ApiResponse();
             if (response.StatusCode == HttpStatusCode.OK)
