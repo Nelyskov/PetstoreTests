@@ -24,9 +24,10 @@ jobs:
       - name: Upload test results
         uses: actions/upload-artifact@v4
         with:
-          name: test-results
-          path: **/*.trx
+          name: TestResults
+          path: "**/*.trx"
           retention-days: 30
+
   allure-report:
     needs: test
     runs-on: ubuntu-latest
