@@ -19,13 +19,18 @@ jobs:
         run: dotnet restore
 
       - name: Run tests
-        run: dotnet test --configuration Release --logger "trx;LogFileName=test_results.trx"
+        run: dotnet test --configuration Release --logger "trx;LogFileName=test_results.trx" --results-directory TestResults
+
+      - name: List files to debug
+        run: |
+          find . -name "*.trx" -type f
+          ls -la TestResults/ || echo "TestResults directory not found"
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
         with:
           name: TestResults
-          path: "**/*.trx"
+          path: "TestResults/**/*.trx"
           retention-days: 30
 
   allure-report:
