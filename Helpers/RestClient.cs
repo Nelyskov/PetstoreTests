@@ -41,7 +41,7 @@ namespace PetstoreTests.Helpers
             return await ExecuteAsync(endpoint, Method.Delete, null, null);
         }
 
-        public static async Task<RestResponse> PostUploadPetImageASync(long petId, string filePath, params (string key, string value)[] parameters)
+        public static async Task<RestResponse> PostUploadPetImageAsync(long petId, string filePath, params (string key, string value)[] parameters)
         {
             if (!File.Exists(filePath))
             {
