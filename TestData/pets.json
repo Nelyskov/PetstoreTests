@@ -1,0 +1,18 @@
+[
+  {
+    "Id": 1001,
+    "Category": { "Id": 1, "Name": "Dogs" },
+    "Name": "Rex",
+    "PhotoUrls": [ "https://example.com/rex.jpg" ],
+    "Tags": [ { "Id": 1, "Name": "tag1" } ],
+    "Status": "available"
+  },
+  {
+    "Id": 1002,
+    "Category": { "Id": 2, "Name": "Cats" },
+    "Name": "Mittens",
+    "PhotoUrls": [ "https://example.com/mittens.jpg" ],
+    "Tags": [ { "Id": 2, "Name": "tag2" } ],
+    "Status": "pending"
+  }
+]
