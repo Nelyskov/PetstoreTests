@@ -7,15 +7,10 @@ using PetstoreTests.Models;
 
 namespace PetstoreTests.Tests
 {
-    [TestFixture]
     [AllureSuite("Pet API")]
     [AllureSubSuite("Find Pet by status")]
     public class FindPetByStatusTests : BaseTest
     {
-        [Test(Description = "Find pet by status")]
-        [AllureTag("API", "pet", "GET")]
-        [AllureSeverity(SeverityLevel.normal)]
-        [AllureOwner("Nikita")]
         [TestCaseSource(typeof(PetTestData), nameof(PetTestData.GetPetsStatus))]
         public async Task FindPetByStatus_ShouldReturnExpectedStatus(string petStatus)
         {
@@ -28,16 +23,7 @@ namespace PetstoreTests.Tests
             );
 
             if (response.StatusCode == HttpStatusCode.OK)
-                try
-                {
-                    JsonHelper.Deserialize<Pet>(response.Content);
-                }
-                catch (Exception ex)
-                {
-                    Assert.Fail($"Failed to deserialize response body to Pet: {ex.Message}\nBody: {response.Content}");
-                }
-            Assert.That(response.Content, Is.InstanceOf<Pet>(), "Response contains non-Pet objects");
+                ResponseAssertions.AssertResponseIs<List<Pet>>(response);
         }
-
     }
 }

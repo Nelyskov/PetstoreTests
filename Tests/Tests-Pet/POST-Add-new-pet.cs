@@ -8,15 +8,10 @@ using PetstoreTests.Models;
 
 namespace PetstoreTests.Tests
 {
-    [TestFixture]
     [AllureSuite("Pet API")]
-    [AllureSubSuite("Find Pet by status")]
+    [AllureSubSuite("Post New Pet")]
     public class PostNewPetTest : BaseTest
     {
-        [Test(Description = "Post pet")]
-        [AllureTag("API", "pet", "POST")]
-        [AllureSeverity(SeverityLevel.normal)]
-        [AllureOwner("Nikita")]
         [TestCaseSource(typeof(PetTestData), nameof(PetTestData.GetPetJsonBody))]
         public async Task PostNewPet_ShouldReturnExpectedStatus(Pet pet)
         {
@@ -27,6 +22,9 @@ namespace PetstoreTests.Tests
                 Is.True,
                 $"Unexpected status {response.StatusCode} for pet"
             );
+
+            if (response.StatusCode == HttpStatusCode.OK)
+                ResponseAssertions.AssertResponseIs<Pet>(response);
         }
     }
 }

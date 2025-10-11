@@ -1,40 +1,25 @@
-using System.Net.Http;
-using RestSharp;
 using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
-using System.Runtime.InteropServices;
 
 namespace PetstoreTests.Helpers
 {
     public class ApiClient
     {
         private readonly HttpClient _client;
-        public ApiClient()
+
+        public ApiClient(string baseUrl = "https://petstore.swagger.io/v2/")
         {
-            _client = new HttpClient { BaseAddress = new System.Uri("https://petstore.swagger.io/v2/") };
+            _client = new HttpClient { BaseAddress = new System.Uri(baseUrl) };
         }
 
-        public async Task<HttpResponseMessage> GetAsync(string endpoint)
-        {
-            return await _client.GetAsync(endpoint);
-        }
+        private StringContent SerializeJson<T>(T obj) => new(JsonSerializer.Serialize(obj), Encoding.UTF8, "application/json");
 
-        public async Task<HttpResponseMessage> PostAsync<T>(string endpoint, T body)
-        {
-            var json = JsonSerializer.Serialize(body);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            return await _client.PostAsync(endpoint, content);
-        }
-        public async Task<HttpResponseMessage> PutAsync<T>(string endpoint, T body)
-        {
-            var json = JsonSerializer.Serialize(body);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            return await _client.PutAsync(endpoint, content);
-        }
-        public async Task<HttpResponseMessage> DeleteAsync(string endpoint)
-        {
-            return await _client.DeleteAsync(endpoint);
-        }
+        public Task<HttpResponseMessage> GetAsync(string endpoint) => _client.GetAsync(endpoint);
+
+        public Task<HttpResponseMessage> PostAsync<T>(string endpoint, T body) => _client.PostAsync(endpoint, SerializeJson(body));
+
+        public Task<HttpResponseMessage> PutAsync<T>(string endpoint, T body) => _client.PutAsync(endpoint, SerializeJson(body));
+
+        public Task<HttpResponseMessage> DeleteAsync(string endpoint) => _client.DeleteAsync(endpoint);
     }
 }
