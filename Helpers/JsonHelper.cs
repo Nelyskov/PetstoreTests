@@ -1,6 +1,4 @@
-using System.IO;
 using System.Text.Json;
-using RestSharp;
 
 namespace PetstoreTests.Helpers
 {

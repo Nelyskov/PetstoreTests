@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using PetstoreTests.Models;
 using RestSharp;
 

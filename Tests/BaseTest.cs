@@ -11,6 +11,7 @@ namespace PetstoreTests.Tests
     {
         protected static ExtentReports _extent;
         protected ExtentTest _test;
+
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
@@ -22,11 +23,13 @@ namespace PetstoreTests.Tests
             _extent = new ExtentReports();
             _extent.AttachReporter(htmlReporter);
         }
+
         [SetUp]
         public void SetUp()
         {
             _test = _extent.CreateTest(TestContext.CurrentContext.Test.Name);
         }
+        
         [TearDown]
         public void TearDown()
         {

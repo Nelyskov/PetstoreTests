@@ -1,9 +1,7 @@
 using PetstoreTests.Helpers;
-using System.Net;
-using Allure.Net.Commons;
 using Allure.NUnit.Attributes;
 using PetstoreTests.TestData;
-using PetstoreTests.Models;
+
 
 namespace PetstoreTests.Tests
 {
