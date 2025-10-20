@@ -29,6 +29,23 @@ namespace PetstoreTests.TestData
                 var json = File.ReadAllText(GetJsonFilePath("petsID.json"));
                 return JsonHelper.Deserialize<List<long>>(json);
             }
+            
+        }
+        public static IEnumerable<string> GetInvalidPetsId
+        {
+            get
+            {
+                var json = File.ReadAllText(GetJsonFilePath("petsID_InvalidIDs.json"));
+                return JsonHelper.Deserialize<List<string>>(json);
+            }
+        }
+        public static IEnumerable<long> GetUnexistedPetsId
+        {
+            get
+            {
+                var json = File.ReadAllText(GetJsonFilePath("petsID_UnexistedIDs.json"));
+                return JsonHelper.Deserialize<List<long>>(json);
+            }
         }
 
         public static IEnumerable<string> GetPetsStatus
