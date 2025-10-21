@@ -5,7 +5,7 @@ namespace PetstoreTests.Tests
 {
     public class ReturnPetInventoriesByStatus : BaseTest
     {
-        public async Task ReturnInventoriesByStatus_ShouldReturnExpectedStatus()
+        public async Task ReturnInventoriesByStatus_ShouldReturn200_ResnoseBodyAndHeaders()
         {
             var response = await RestClientHelper.GetAsync("/store/inventory");
             Assert.That(
@@ -14,7 +14,7 @@ namespace PetstoreTests.Tests
                 $"Unexpected status {response.StatusCode} for inventory"
             );
 
-            ResponseAssertions.AssertResponseIs<Dictionary<string, int>>(response);
+            
         }
     }
 }

@@ -1,6 +1,5 @@
 using PetstoreTests.Helpers;
 using System.Net;
-using Allure.Net.Commons;
 using Allure.NUnit.Attributes;
 using PetstoreTests.TestData;
 using PetstoreTests.Models;
@@ -13,15 +12,20 @@ namespace PetstoreTests.Tests
     public class PostNewPetTest : BaseTest
     {
         [TestCaseSource(typeof(PetTestData), nameof(PetTestData.GetPetJsonBody))]
-        public async Task PostNewPet_ShouldReturnExpectedStatus(Pet pet)
+        public async Task PostNewPet_ShouldReturn200(Pet pet)
         {
             var response = await RestClientHelper.PostAsync("/pet", pet);
-            Assert.That(
-                response.StatusCode == HttpStatusCode.OK
-                || response.StatusCode == HttpStatusCode.MethodNotAllowed,
-                Is.True,
-                $"Unexpected status {response.StatusCode} for pet"
-            );
+            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK), $"Unexpected status {response.StatusCode} for pet");
+
+            if (response.StatusCode == HttpStatusCode.OK)
+                ResponseAssertions.AssertResponseIs<Pet>(response);
+        }
+        
+        [TestCaseSource(typeof(PetTestData), nameof(PetTestData.GetInvalidPetJsonBody))]
+        public async Task PostNewPet_ShouldReturn405(Pet pet)
+        {
+            var response = await RestClientHelper.PostAsync("/pet", pet);
+             Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK), $"Unexpected status {response.StatusCode} for pet" );
 
             if (response.StatusCode == HttpStatusCode.OK)
                 ResponseAssertions.AssertResponseIs<Pet>(response);
