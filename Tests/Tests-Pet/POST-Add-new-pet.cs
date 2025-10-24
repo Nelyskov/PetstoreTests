@@ -8,7 +8,7 @@ using PetstoreTests.Models;
 namespace PetstoreTests.Tests
 {
     /// <summary>
-    /// Набор автотестов для проверки работы эндпоинта <c>/pet</c> Pet API.
+    /// Набор автотестов для проверки работы эндпоинта/pet Pet API.
     /// Проверяются сценарии создания питомцев:
     /// 1. Успешное создание питомца с валидными данными (200 OK);
     /// 2. Попытка создания питомца с некорректными данными (405 Method Not Allowed).
@@ -19,7 +19,7 @@ namespace PetstoreTests.Tests
     {
         /// <summary>
         /// Позитивный тест: проверяет успешное создание нового питомца с корректными данными.
-        /// Ожидаемый результат — HTTP 200 OK и корректный объект <see cref="Pet"/> в ответе.
+        /// Ожидаемый результат — HTTP 200 OK и корректный объект Pet в ответе.
         /// </summary>
         /// <param name="pet">Объект питомца с валидными данными.</param>
         [TestCaseSource(typeof(PetTestData), nameof(PetTestData.GetPetJsonBody))]

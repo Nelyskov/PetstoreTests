@@ -9,7 +9,7 @@ using Microsoft.CodeAnalysis;
 namespace PetstoreTests.Tests
 {
     /// <summary>
-    /// Набор автотестов для проверки работы эндпоинта <c>/pet/{petId}/uploadImage</c> Pet API.
+    /// Набор автотестов для проверки работы эндпоинта /pet/{petId}/uploadImage Pet API.
     /// Проверяется сценарий загрузки изображения питомца:
     /// 1. Успешная загрузка изображения (200 OK).
     /// </summary>

@@ -5,11 +5,7 @@ using PetstoreTests.TestData;
 
 namespace PetstoreTests.Tests
 {
-    /// <summary>
-    /// Тесты для проверки работы эндпоинта <c>/store/inventory</c> Order API.
-    /// Проверяется сценарий получения информации о запасах питомцев по статусу.
-    /// 1. Успешное получение данных об инвентаре (200 OK).
-    /// </summary>
+
     public class PlaceAnOrderForPet : BaseTest
     {
         [TestCaseSource(typeof(StoreTestData), nameof(StoreTestData.GetOrderJsonBody))]
