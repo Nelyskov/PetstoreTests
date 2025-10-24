@@ -5,7 +5,8 @@ namespace PetstoreTests.Tests
 {
     public class ReturnPetInventoriesByStatus : BaseTest
     {
-        public async Task ReturnInventoriesByStatus_ShouldReturn200_ResnoseBodyAndHeaders()
+        [Test]
+        public async Task ReturnInventories_ShouldReturn200()
         {
             var response = await RestClientHelper.GetAsync("/store/inventory");
             Assert.That(
