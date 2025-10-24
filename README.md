@@ -87,5 +87,5 @@ dotnet test
 :point_right: **Используемый стэк**
 * C# (.NET 9)
 * NUnit
-* TestSharp
+* RestSharp
 * Allure(отчеты)
