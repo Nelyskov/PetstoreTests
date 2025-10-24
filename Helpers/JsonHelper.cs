@@ -4,6 +4,9 @@ namespace PetstoreTests.Helpers
 {
     public static class JsonHelper
     {
+        /// <summary>
+        /// Default JsonSerializer options used for serialization and deserialization.
+        /// </summary>
         private static readonly JsonSerializerOptions DefaultOptions = new()
         {
             PropertyNameCaseInsensitive = true,

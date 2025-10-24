@@ -2,6 +2,9 @@ namespace PetstoreTests.Models
 {
     public class Order
     {
+        /// <summary>
+        /// Тело объекта Order
+        /// </summary>
         public long Id { get; set; }
         public long PetId { get; set; }
         public long Quantity { get; set; }

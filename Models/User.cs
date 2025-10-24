@@ -2,6 +2,9 @@ namespace PetstoreTests.Models
 {
     public class User
     {
+        /// <summary>
+        /// Тело объекта User
+        /// </summary>
         public long Id { get; set; }
         public string Username { get; set; }
         public string FirstName { get; set; }

@@ -1,13 +1,14 @@
-using System.Collections.Generic;
 using PetstoreTests.Models;
 using PetstoreTests.Helpers;
-using System.IO;
-using System.Text.Json;
+
 
 namespace PetstoreTests.TestData
 {
     public static class PetTestData
     {
+        /// <summary>
+        /// Основные методы для получения пути к JSON файлам с тестовыми данными и десериализации их в объекты для выполнения тестов
+        /// <returns></returns>
         private static string GetJsonFilePath(string fileName)
         {
             return Path.Combine(Directory.GetCurrentDirectory(), "TestData", fileName);

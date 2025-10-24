@@ -8,6 +8,11 @@ using Microsoft.CodeAnalysis;
 
 namespace PetstoreTests.Tests
 {
+    /// <summary>
+    /// Набор автотестов для проверки работы эндпоинта <c>/pet/{petId}/uploadImage</c> Pet API.
+    /// Проверяется сценарий загрузки изображения питомца:
+    /// 1. Успешная загрузка изображения (200 OK).
+    /// </summary>
     [AllureSuite("Pet API")]
     [AllureSubSuite("Upload Image")]
     public class PostUploadImage : BaseTest
