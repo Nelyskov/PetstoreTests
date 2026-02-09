@@ -1,7 +1,7 @@
 # Проект автоматизирует тестирование по правилам REST API магазин [Petstore Swagger](https://petstore.swagger.io/)
 **_Реализованными тестами покрываются основные endpoint Petstore (Pet, Order и User API)_**
 
-:point_right: **Основная структура проекта**
+ **Основная структура проекта**
 ![plantuml](https://github.com/user-attachments/assets/802aea88-5c1c-4544-b23e-cebd740a350e)
 
 Config
@@ -75,7 +75,7 @@ TestResults
 Папка, автоматически создаваемая при выполнении тестов через NUnit или dotnet test.
 Содержит временные файлы, логи и результаты прогонов.
 
-:point_right: **Настройка и запуск**
+**Настройка и запуск**
 Установка зависимостей
 ```
 dotnet restore
@@ -84,7 +84,7 @@ dotnet restore
 ```
 dotnet test
 ```
-:point_right: **Используемый стэк**
+**Используемый стэк**
 * C# (.NET 9)
 * NUnit
 * RestSharp
